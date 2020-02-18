@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en' xmlns:th="http://www.theymeleaf.org/">
+<head>
+    <meta charset='utf-8'>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Sign Up</title>
+</head>
+<body>
+<h1>User Sign Up</h1>
+<!--    <form method = 'post'>-->
+    <form method = 'post' th:action="@{/user}">
+        <div class="form-group">
+            <label>Username:
+                <input type="text" th:field="${user.username}" class="form-control" th:value="${username}">
+            </label>
+            <p class="error" th:errors="${user.username}"></p><br>
+            <label>Email:
+                <input type="email" th:field="${user.email}" class="form-control" th:value="${email}">
+            </label>
+            <p class="error" th:errors="${user.email}"></p><br>
+            <label>Password:
+                <input type="password" th:field="${user.password}" class="form-control">
+            </label>
+            <p class="error" th:errors="${user.password}"></p><br>
+            <label>Verify Password:
+                <input type="password" th:field="${user.verify}" class="form-control">
+            </label>
+            <p class="error" th:errors="${user.verify}"></p><br>
+
+            <p th:text="${error}"></p>
+
+            <input type="submit" value="Sign Up" class="form-control">
+        </div>
+    </form>
+</body>
+</html>
